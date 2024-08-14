@@ -1,0 +1,720 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif; /* Menggunakan font Montserrat */
+}
+
+/* General Styles */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #1A2B4C;
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* General Navbar Styles */
+nav {
+    background-color: #1A2B4C;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Mengubah posisi navbar menjadi fixed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000; /* Memastikan navbar berada di atas konten lainnya */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan agar lebih terlihat */
+}
+
+.nav-links ul {
+    list-style: none; /* Menghapus default list style (bullet) */
+    padding: 0;
+    margin: 0;
+}
+.nav-links {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links li {
+    margin-left: 20px;
+    position: relative;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 16px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.nav-links a:hover {
+    background-color: #1A2B4C;
+}
+
+/* Style untuk Dropdown Toggle dengan Ikon */
+.dropdown-toggle {
+    position: relative;
+    padding-right: 20px; /* Memberikan ruang untuk ikon */
+}
+
+.dropdown-toggle i,
+.dropdown-toggle span {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 12px; /* Ukuran ikon lebih kecil */
+    transition: transform 0.3s ease;
+}
+
+.dropdown:hover .dropdown-toggle i,
+.dropdown:hover .dropdown-toggle span {
+    transform: translateY(-50%) rotate(180deg); /* Memutar ikon saat hover */
+}
+
+/* Dropdown Menu Styles */
+.dropdown .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #2c3e50;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1000;
+    padding: 10px 0;
+}
+
+.dropdown .dropdown-menu li {
+    margin: 0;
+}
+
+.dropdown .dropdown-menu a {
+    padding: 10px 20px;
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    white-space: nowrap;
+}
+
+.dropdown .dropdown-menu a:hover {
+    background-color: #1A2B4C;
+}
+
+/* Hover Effect for Dropdown */
+.dropdown:hover .dropdown-menu {
+    display: block;
+    opacity: 0;
+    visibility: visible;
+    transform: translateY(10px);
+    animation: dropdown-slide 0.3s forwards;
+}
+
+@keyframes dropdown-slide {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+}
+
+.social-icons a {
+    color: #ffffff;
+    font-size: 20px;
+    margin-left: 15px;
+}
+
+.social-icons a:hover {
+    color: #1abc9c;
+}
+
+/* Mobile Navigation */
+/* Gaya untuk tombol toggle */
+.toggle-button {
+    background-color: transparent; /* Latar belakang transparan */
+    border: none; /* Menghilangkan border */
+    cursor: pointer; /* Menunjukkan kursor pointer */
+    font-size: 1.5rem; /* Ukuran font untuk ikon */
+    color: #ffffff; /* Warna ikon */
+    transition: color 0.3s ease; /* Transisi warna */
+    display: none;
+}
+
+/* Gaya saat hover */
+
+
+/* Gaya untuk ikon menu (hamburger) */
+#menuIcon {
+    display: block; /* Menampilkan ikon menu */
+}
+
+/* Gaya untuk ikon tutup (X) */
+#closeIcon {
+    display: none; /* Menyembunyikan ikon tutup */
+}
+
+
+@media (max-width: 768px) {
+    /* Hide social icons outside of the toggle on mobile */
+    .social-icons {
+        display: none;
+    }
+
+    .toggle-button {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #1A2B4C;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 20px 0;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+    }
+
+    .nav-links.active .social-icons {
+        display: flex; /* Display social icons inside toggle */
+        justify-content: center;
+        margin-top: 20px; /* Add space above social icons */
+    }
+
+    .social-icons a {
+        margin: 0 10px; /* Adjust spacing between icons */
+    }
+}
+
+
+/* Header Styling */
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('gadget-background.jpg'); /* Add your background image */
+    background-size: cover;
+    background-position: center;
+    color: #fff;
+    text-align: center;
+    padding: 0 20px; /* Menambahkan padding untuk menjaga jarak di sisi kiri dan kanan pada mobile */
+}
+
+.header-content {
+    max-width: 800px; /* Membatasi lebar maksimum untuk menjaga keterbacaan di desktop dan mobile */
+    width: 100%; /* Pastikan lebar penuh pada mobile */
+}
+
+.header-content h1 {
+    font-size: 36px; /* Ukuran font untuk h1 di desktop */
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.header-content h2 {
+    font-size: 48px; /* Ukuran font untuk h2 di desktop */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+
+.header-content p {
+    font-size: 16px; /* Ukuran font untuk paragraf di desktop */
+    margin-top: 20px; /* Menambahkan margin atas untuk menurunkan posisi */
+    line-height: 1.6; /* Menyesuaikan tinggi baris agar lebih mudah dibaca */
+    color: #ccc; /* Warna teks */
+}
+
+.cta {
+    display: inline-block;
+    padding: 12px 24px; /* Ukuran padding untuk tombol CTA di desktop */
+    background-color: #f09d51;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    font-weight: 700;
+    margin-top: 30px; /* Menambahkan margin atas untuk menjaga jarak */
+}
+
+.cta:hover {
+    background-color: #333;
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+    header {
+        padding: 20px; /* Tambahan padding untuk mobile */
+    }
+
+    .header-content h1 {
+        font-size: 20px; /* Ukuran font h1 lebih kecil pada mobile */
+    }
+
+    .header-content h2 {
+        font-size: 32px; /* Ukuran font h2 lebih kecil pada mobile */
+    }
+
+    .header-content p {
+        font-size: 14px; /* Ukuran font paragraf lebih kecil pada mobile */
+    }
+
+    .cta {
+        padding: 10px 20px; /* Ukuran padding untuk tombol CTA pada mobile */
+        font-size: 16px; /* Ukuran font pada tombol lebih kecil pada mobile */
+        margin-top: 20px; /* Menambahkan margin atas untuk menjaga jarak */
+    }
+}
+
+
+/* Section Styling */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#price-list, #how-to-order {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+/* Footer Styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1A2B4C;
+    color: #fff;
+}
+
+
+
+.fixed-footer {
+    position: fixed;
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+.how-to-order {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    background-color: #f09d51;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 700;
+    transition: background-color 0.3s;
+}
+
+.how-to-order:hover {
+    background-color:#1A2B4C;
+}
+
+.whatsapp {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: inline-block;
+}
+
+.whatsapp img {
+    width: 50px; /* Ukuran ikon WhatsApp */
+    height: 50px; /* Ukuran ikon WhatsApp */
+    transition: transform 0.3s;
+}
+
+.whatsapp img:hover {
+    transform: scale(1.1); /* Sedikit memperbesar ikon saat dihover */
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .how-to-order {
+        bottom: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .whatsapp {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .whatsapp img {
+        width: 40px; /* Ukuran ikon WhatsApp yang lebih kecil di mobile */
+        height: 40px;
+    }
+}
+
+#how-to-order {
+    background-color: #1A2B4C; /* Warna background section */
+    color: #34495e; /* Warna teks yang lebih gelap */
+    padding: 60px 20px; /* Padding yang lebih besar untuk ruang yang lebih baik */
+    display: flex;
+    justify-content: center; /* Memusatkan konten */
+    align-items: center;
+    min-height: 100vh; /* Membuat section memenuhi tinggi layar */
+    text-align: left;
+}
+
+.how-to-order-container {
+    background-color: #f0f0f0; /* Warna background container */
+    padding: 40px; /* Padding untuk konten di dalam container */
+    border-radius: 10px; /* Membuat sudut membulat untuk container */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2); /* Menambahkan bayangan */
+    max-width: 600px; /* Membatasi lebar container */
+    width: 100%; /* Pastikan lebar penuh pada layar kecil */
+}
+
+#how-to-order h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #34495e; /* Warna teks untuk judul */
+    text-align: center; /* Memusatkan judul */
+}
+
+#how-to-order p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #34495e; /* Warna teks untuk paragraf */
+}
+
+#how-to-order ul {
+    list-style-type: disc;
+    margin-left: 20px;
+    padding-left: 20px; /* Menambahkan padding kiri untuk list */
+}
+
+#how-to-order ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #34495e; /* Warna teks yang lebih gelap untuk list */
+}
+
+.contact-info {
+    text-align: center; /* Menyelaraskan teks dan link di tengah */
+    margin: 20px auto; /* Memberikan jarak atas dan bawah, serta memastikan elemen berada di tengah secara horizontal */
+    padding: 20px; /* Menambahkan padding agar tampak lebih baik */
+    border-radius: 5px; /* Memberikan sudut yang membulat */
+    max-width: 600px; /* Membatasi lebar maksimal */
+}
+
+.whatsapp-link {
+    display: inline-block; /* Membuat link tampil sebagai inline-block agar bisa diberi padding dan margin */
+    padding: 10px 20px; /* Menambahkan padding agar tampak lebih baik */
+    background-color: #25D366; /* Warna latar belakang WhatsApp */
+    color: white; /* Warna teks */
+    border-radius: 5px; /* Membulatkan sudut link */
+    text-decoration: none; /* Menghilangkan garis bawah */
+    font-size: 16px; /* Ukuran font */
+    margin-top: 10px; /* Jarak atas untuk memberikan ruang antara paragraf dan link */
+}
+
+.whatsapp-link:hover {
+    background-color: #4fd66c; /* Warna latar belakang saat hover */
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+    #how-to-order {
+        padding: 40px 15px;
+    }
+
+    .how-to-order-container {
+        padding: 20px;
+    }
+
+    #how-to-order h2 {
+        font-size: 28px;
+    }
+
+    #how-to-order p, 
+    #how-to-order ul li {
+        font-size: 16px;
+    }
+}
+
+
+/* price */
+
+
+/* Animasi floating sederhana */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+    .price-list-container {
+        flex-direction: column; /* Stack elemen di mobile */
+        text-align: center;
+    }
+
+    .price-list-content h2 {
+        font-size: 36px;
+    }
+
+    .price-list-content p {
+        font-size: 16px;
+    }
+
+    .animated-person {
+        margin-top: 20px;
+    }
+}
+
+
+/* Gaya untuk elemen h1 */
+#account-list h1 {
+    font-size: 2.5rem; /* Ukuran font yang besar */
+    font-weight: bold; /* Teks tebal */
+    color: #ffffff; /* Warna teks gelap untuk kontras yang baik */
+    margin-bottom: 1rem; /* Jarak bawah untuk spasi */
+    text-align: center; /* Teks rata tengah */
+    text-transform: uppercase; /* Teks kapital semua */
+    letter-spacing: 1px; /* Jarak antar huruf sedikit lebih lebar */
+}
+
+/* Gaya untuk elemen p */
+#account-list p {
+    font-size: 1.125rem; /* Ukuran font yang nyaman dibaca */
+    color: #ffffff; /* Warna teks abu-abu untuk kesan lembut */
+    margin: 0 auto 2rem; /* Jarak bawah lebih besar, margin otomatis di sisi kiri dan kanan */
+    max-width: 800px; /* Maksimal lebar teks */
+    line-height: 1.6; /* Jarak antar baris */
+    text-align: center; /* Teks rata tengah */
+}
+
+/* account list */
+
+#account-list {
+    background-color: #1A2B4C; /* Warna background section */
+    color: #ffffff; /* Warna teks */
+    padding: 60px 20px; /* Padding untuk ruang di dalam section */
+    text-align: center;
+}
+
+#account-list h2 {
+    margin-top: 20px; /* atau ukuran yang sesuai dengan kebutuhan */
+    margin-bottom: 20px; /* jika ingin menambahkan jarak di bawahnya juga */
+    font-size: 24px; /* atur ukuran font jika perlu */
+}
+
+.account-list-container {
+    max-width: 1200px; /* Lebar maksimum container */
+    margin: 0 auto;
+}
+
+#account-list h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+.account-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* Jarak antar kartu */
+}
+
+.account-card {
+    background-color: #ffffff; /* Warna background kartu */
+    color: #34495e; /* Warna teks kartu */
+    border-radius: 10px; /* Membulatkan sudut kartu */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Menambahkan bayangan */
+    padding: 20px;
+    width: 250px; /* Lebar kartu */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+}
+
+.account-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: nowrap; /* Mencegah tag turun ke baris berikutnya */
+    gap: 5px; /* Jarak antar tag */
+    margin-bottom: 15px;
+}
+
+.tags span {
+    background-color: #1A2B4C;
+    color: #ffffff;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 12px;
+    display: inline-block;
+    line-height: 1;
+    font-weight: 600;
+    white-space: nowrap; /* Mencegah teks menjadi dua baris */
+}
+
+
+
+.account-card ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0 0 15px 0;
+    flex-grow: 1;
+}
+
+.account-card ul li {
+    font-size: 14px;
+    margin-bottom: 10px;
+    color: #34495e;
+}
+
+.price {
+    font-size: 14px; /* Ukuran font lebih kecil */
+    font-weight: 600; /* Berat font sedikit dikurangi */
+    background-color: #1A2B4C;
+    color: #ffffff;
+    padding: 3px 8px; /* Padding yang lebih kecil */
+    border-radius: 3px; /* Membuat border-radius lebih kecil */
+    text-align: center;
+}
+
+/* Responsive styling for mobile */
+@media (max-width: 768px) {
+    .account-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .account-card {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+
+
+#testimonial {
+    background-color: #f0f0f0; /* Warna background testimonial */
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.testimonial-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#testimonial h2 {
+    font-size: 36px;
+    margin-bottom: 40px;
+    font-weight: 700;
+    color: #1A2B4C;
+}
+
+.testimonial-slider {
+    display: flex;
+    overflow: hidden;
+    width: 100%;
+}
+
+.testimonial-item {
+    min-width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.testimonial-item p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.testimonial-item h4 {
+    font-size: 16px;
+    color: #1A2B4C;
+    font-weight: 700;
+}
+
+.testimonial-nav {
+    margin-top: 20px;
+}
+
+.testimonial-nav .prev, 
+.testimonial-nav .next {
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 0 10px;
+    color: #1A2B4C;
+    background-color: #ffffff;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-nav .prev:hover,
+.testimonial-nav .next:hover {
+    background-color: #1A2B4C;
+    color: #ffffff;
+}
+
+
+/* Basic dropdown styles */
